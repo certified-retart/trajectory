@@ -166,7 +166,7 @@ function Trajectory:GetDetailedPath(path, pointsPerSegment)
 	
 	for i = 1, #path do
 		local x0, v0, t = unpack(path[i])
-
+		
 		for j = 0, pointsPerSegment do
 			local segmentTime = t * (j / pointsPerSegment)
 			local position = self:Position(x0, v0, segmentTime)
@@ -178,7 +178,7 @@ function Trajectory:GetDetailedPath(path, pointsPerSegment)
 				velocity = self:Velocity(v0, segmentTime)
 			})
 		end
-
+		
 		cumulativeTime = cumulativeTime + t
 	end
 	
@@ -193,4 +193,4 @@ function Trajectory:Draw(path)
 end
 --
 
-return Trajectory 
+return Trajectory
